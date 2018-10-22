@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/dwq"
+    android:id="@+id/layoutOut"
+    tools:context=".userUIActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/ic_hy" />
+
+        <TextView
+            android:id="@+id/textViewC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="Please Choose Your City"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:backgroundTint="@color/Black"
+            android:padding="16dp"
+            android:popupBackground="@color/White" />
+
+        <Button
+            android:id="@+id/buttonC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/Black"
+            android:onClick="onClick"
+            android:padding="12dp"
+            android:text="Select date"
+            android:textColor="@color/White"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textViewDateC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text=""
+            android:textColor="@color/Black"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonSearchC"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/Black"
+            android:onClick="onClick"
+            android:text="Search"
+            android:textColor="@color/White" />
+
+        <TextView
+            android:id="@+id/textView6C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingTop="50dp"
+            android:text="You Can Also See All The Available Caterers in Your City"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonSeeC"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/Black"
+            android:text="See Caterers"
+            android:textColor="@color/White" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
