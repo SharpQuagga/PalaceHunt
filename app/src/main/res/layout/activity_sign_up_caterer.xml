@@ -12,13 +12,15 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textColor="#000000"
-        android:textSize="30dp"
         android:layout_gravity="center_vertical"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:gravity="center_horizontal"
+        android:text="Log In"
+        android:paddingLeft="120dp"
+        android:textColor="#000000"
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/editText4"
@@ -35,16 +37,18 @@
         android:id="@+id/editText5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="#000000"
-        android:textSize="30dp"
         android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:hint="Password" />
+        android:textColor="#000000"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/White"
         android:text="Log In" />
 </LinearLayout>
