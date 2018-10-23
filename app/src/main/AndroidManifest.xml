@@ -34,7 +34,8 @@
         <activity android:name=".caterers.SearchedCaterersActivity" />
         <activity android:name=".LoggedInActivity" />
         <activity android:name=".caterers.LoggedInCatererActivity" />
-        <activity android:name=".caterers.SignUpActivity"></activity>
+        <activity android:name=".caterers.SignUpCatererActivity"></activity>
+
     </application>
 
 </manifest>
