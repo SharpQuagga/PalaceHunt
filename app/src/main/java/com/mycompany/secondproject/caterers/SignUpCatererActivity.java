@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mycompany.secondproject.R;
 
 public class SignUpCatererActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,35 +42,45 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
         progressDialog.setMessage("Loading");
         progressDialog.setCancelable(false);
         btnLogIn.setOnClickListener(this);
-        caterer = new Caterer();
+//        caterer = new Caterer();
 
         auth= FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        if (user!= null){
+
+            finish();
+            startActivity(new Intent(SignUpCatererActivity.this,LoggedInCatererActivity.class));
+        }
+
 
         Email = etxtEmail.getText().toString();
         pass = etxtPass.getText().toString().trim();
-         caterer.email = etxtEmail.getText().toString().trim();
-         caterer.password = etxtPass.getText().toString().trim();
+//         caterer.email = etxtEmail.getText().toString();
+//         caterer.password = etxtPass.getText().toString().trim();
+//        Log.e("Firrrrrrr","co"+caterer.password+"dvv"+caterer.email);
+        Log.e("Firrrrrrr","coooo"+Email+"dvvvvv"+pass);
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.button3){
-            // Firebae code
-            if (caterer.email.isEmpty() || caterer.password.isEmpty()){
-                Toast.makeText(this,"Plears fill details",Toast.LENGTH_LONG).show();
-                Log.e("Firrrrrrr","co"+caterer.password+"dvv"+caterer.email);
-                Log.e("Firrrrrrr","coooo"+Email+"dvvvvv"+pass);
-            }else {
+//             Firebae code
+//            if (caterer.email.isEmpty() || caterer.password.isEmpty()){
+//                Toast.makeText(this,"Plears fill details",Toast.LENGTH_LONG).show();
+//
+//            }else {
             userLogin();
-        }
+//        }
         }
     }
 
     private void userLogin() {
         progressDialog.show();
         Log.e("Firebasesss","sfs");
-        auth.signInWithEmailAndPassword(caterer.email,caterer.password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(etxtEmail.getText().toString(),etxtPass.getText().toString())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Toast.makeText(SignUpCatererActivity.this,"Login SuccessFull",Toast.LENGTH_LONG).show();
@@ -82,8 +93,10 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onFailure(@NonNull Exception e) {
                 e.printStackTrace();
-                Toast.makeText(SignUpCatererActivity.this,"Login UnSuccessFull",Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUpCatererActivity.this,"Login UnSuccessFull"+e.getMessage(),Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
+                Intent intent = new Intent(SignUpCatererActivity.this,SignUpCatererActivity.class);
+                startActivity(intent);
             }
         });
     }
