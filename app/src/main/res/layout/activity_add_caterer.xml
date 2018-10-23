@@ -103,13 +103,13 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/White"
-        android:text="Submit"
+        android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textViewLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="188dp"
