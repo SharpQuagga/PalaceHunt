@@ -109,7 +109,7 @@
                 android:ems="10"
                 android:hint="Phone Number"
                 android:inputType="phone"
-                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintBottom_toTopOf="@+id/editTextp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -130,7 +130,7 @@
 
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editTextp"
                 android:layout_width="300dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="8dp"
@@ -141,12 +141,12 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                app:layout_constraintBottom_toTopOf="@+id/editText2"
+                app:layout_constraintBottom_toTopOf="@+id/editText2p"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/editText2p"
                 android:layout_width="300dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="8dp"
@@ -156,7 +156,7 @@
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="@color/White"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="Password"
                 android:inputType="textPassword"
                 app:layout_constraintBottom_toTopOf="@+id/buttonC"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -34,8 +34,8 @@ public class AddCatererActivity extends AppCompatActivity implements View.OnClic
         etxtadderss = findViewById(R.id.edittextaddressC);
         etxtCity = findViewById(R.id.editTextCityC);
         txtLogIn = findViewById(R.id.textViewLogIn);
-        etxtPass = findViewById(R.id.editText2);
-        etxtEmail = findViewById(R.id.editText);
+        etxtPass = findViewById(R.id.editText2p);
+        etxtEmail = findViewById(R.id.editTextp);
         txtLogIn.setOnClickListener(this);
         getSupportActionBar().hide();
         btnSubmit.setOnClickListener(this);

@@ -1,4 +1,4 @@
-package com.mycompany.secondproject.caterers;
+package com.mycompany.secondproject;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,19 +17,23 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.mycompany.secondproject.R;
+import com.mycompany.secondproject.caterers.LoggedInCatererActivity;
+import com.mycompany.secondproject.caterers.SignUpCatererActivity;
 
-public class SignUpCatererActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etxtEmail , etxtPass;
-    Caterer caterer;
-    Button btnLogIn;        ProgressDialog progressDialog;
-    FirebaseAuth auth;      String Email , pass ;
+    EditText etxtEmail, etxtPass;
+    Palace palace;
+    Button btnLogIn;
+    ProgressDialog progressDialog;
+    FirebaseAuth auth;
+    String Email, pass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_caterer);
+        setContentView(R.layout.activity_sign_up);
         initViews();
     }
 
@@ -44,23 +48,23 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
         btnLogIn.setOnClickListener(this);
 //        caterer = new Caterer();
 
-        auth= FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
-        if (user!= null){
+        if (user != null) {
 
             finish();
-            startActivity(new Intent(SignUpCatererActivity.this,LoggedInCatererActivity.class));
+            startActivity(new Intent(SignUpActivity.this, LoggedInActivity.class));
         }
 
 
-        Email = etxtEmail.getText().toString();
+        Email = etxtEmail.getText().toString().trim();
         pass = etxtPass.getText().toString().trim();
-//         caterer.email = etxtEmail.getText().toString();
-//         caterer.password = etxtPass.getText().toString().trim();
-//        Log.e("Firrrrrrr","co"+caterer.password+"dvv"+caterer.email);
-        Log.e("Firrrrrrr","coooo"+Email+"dvvvvv"+pass);
+
+        Log.e("Firrrrrrr", "coooo" + Email + "dvvvvv" + pass);
+
     }
+
 
     @Override
     public void onClick(View v) {
@@ -74,6 +78,7 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
             userLogin();
 //        }
         }
+
     }
 
     private void userLogin() {
@@ -81,21 +86,21 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
         Log.e("Firebasesss","sfs");
         auth.signInWithEmailAndPassword(etxtEmail.getText().toString(),etxtPass.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Toast.makeText(SignUpCatererActivity.this,"Login SuccessFull",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(SignUpCatererActivity.this,LoggedInCatererActivity.class);
-                startActivity(intent);
-                progressDialog.dismiss();
-                finish();
-            }
-        }).addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Toast.makeText(SignUpActivity.this,"Login SuccessFull",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(SignUpActivity.this,LoggedInActivity.class);
+                        startActivity(intent);
+                        progressDialog.dismiss();
+                        finish();
+                    }
+                }).addOnFailureListener(this, new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 e.printStackTrace();
-                Toast.makeText(SignUpCatererActivity.this,"Login UnSuccessFull"+e.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUpActivity.this,"Login UnSuccessFull"+e.getMessage(),Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
-                Intent intent = new Intent(SignUpCatererActivity.this,SignUpCatererActivity.class);
+                Intent intent = new Intent(SignUpActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
         });

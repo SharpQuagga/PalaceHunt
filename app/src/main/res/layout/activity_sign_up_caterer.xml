@@ -23,7 +23,7 @@
         android:textSize="30dp" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editText4pp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -34,7 +34,7 @@
         android:textSize="30dp"/>
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editText5pp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

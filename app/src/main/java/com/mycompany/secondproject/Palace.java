@@ -9,12 +9,14 @@ public class Palace {
     public String phone;
     public String booked;
     public String city;
+    public String email;
+    public String password;
 
     public Palace(){
 
     }
 
-    public Palace(String id, String name, String address, String phone,String imageUrl,String booked,String city) {
+    public Palace(String imageUrl, String id, String name, String address, String phone, String booked, String city, String email, String password) {
         this.imageUrl = imageUrl;
         this.id = id;
         this.name = name;
@@ -22,6 +24,12 @@ public class Palace {
         this.phone = phone;
         this.booked = booked;
         this.city = city;
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getId() {
@@ -40,11 +48,19 @@ public class Palace {
         return phone;
     }
 
-   public String getImageUrl() {
-       return imageUrl;
-   }
+    public String getBooked() {
+        return booked;
+    }
 
-    public String getBooked() { return booked;  }
+    public String getCity() {
+        return city;
+    }
 
-    public String getCity() {   return city;    }
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
