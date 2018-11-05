@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -82,7 +84,7 @@ public class SerachPalaceList extends ArrayAdapter<Palace> {
                 txtphone.setText(palace12.getPhone());
                 txtCity.setText(palace12.getCity());
                 url = palace12.getImageUrl();
-                Picasso.get().load(url).into(imageView);
+                Picasso.get().load(String.valueOf(url)).into(imageView);
             }
         }
 

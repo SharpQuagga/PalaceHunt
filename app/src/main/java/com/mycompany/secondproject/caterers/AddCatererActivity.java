@@ -68,14 +68,19 @@ public class AddCatererActivity extends AppCompatActivity implements View.OnClic
         }
         if (id == R.id.buttonC){
             Log.e("onclick","cjala");
-            caterer.name = etxtName.getText().toString().trim();
-            caterer.address = etxtadderss.getText().toString().trim();
-            caterer.city = etxtCity.getText().toString().trim();
-            caterer.phone = etxtPhone.getText().toString().trim();
-            caterer.password = etxtPass.getText().toString().trim();
-            caterer.email = etxtEmail.getText().toString().trim();
-            // Firebase code
-            registerUser();
+
+            if (etxtName == null || etxtEmail == null || etxtPass == null || etxtadderss == null || etxtCity == null || etxtPhone == null) {
+                Toast.makeText(this, "Please fill all hte details first", Toast.LENGTH_LONG).show();
+            } else {
+                caterer.name = etxtName.getText().toString().trim();
+                caterer.address = etxtadderss.getText().toString().trim();
+                caterer.city = etxtCity.getText().toString().trim();
+                caterer.phone = etxtPhone.getText().toString().trim();
+                caterer.password = etxtPass.getText().toString().trim();
+                caterer.email = etxtEmail.getText().toString().trim();
+                // Firebase code
+                registerUser();
+            }
         }
 
     }

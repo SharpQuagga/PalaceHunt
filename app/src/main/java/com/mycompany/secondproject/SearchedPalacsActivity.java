@@ -115,7 +115,7 @@ public class SearchedPalacsActivity extends AppCompatActivity implements Adapter
     }
 
     private void showOptions() {
-        String[] items = {"View Location","Call","Cancel"};
+        String[] items = {"View Location","Call","Share via","Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
@@ -134,8 +134,16 @@ public class SearchedPalacsActivity extends AppCompatActivity implements Adapter
                         intent21.setData(Uri.parse("tel:" + number));
                         startActivity(intent21);
                         break;
-                        
+
                     case 2:
+                        Intent i=new Intent(android.content.Intent.ACTION_SEND);
+                        i.setType("text/plain");
+                        i.putExtra(android.content.Intent.EXTRA_SUBJECT,"Subject test");
+                        i.putExtra(android.content.Intent.EXTRA_TEXT, "extra text that you want to put");
+                        startActivity(Intent.createChooser(i,"Share via"));
+                        break;
+
+                    case 3:
 
                         break;
                 }

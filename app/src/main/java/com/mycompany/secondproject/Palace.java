@@ -1,6 +1,9 @@
 package com.mycompany.secondproject;
 
 
+import android.net.Uri;
+
+
 public class Palace {
     public String imageUrl;
     public String id;
@@ -16,7 +19,7 @@ public class Palace {
 
     }
 
-    public Palace(String imageUrl, String id, String name, String address, String phone, String booked, String city, String email, String password) {
+    public Palace( String id,String imageUrl, String name, String address, String phone, String booked, String city, String email, String password) {
         this.imageUrl = imageUrl;
         this.id = id;
         this.name = name;

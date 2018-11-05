@@ -79,25 +79,31 @@ public class SignUpCatererActivity extends AppCompatActivity implements View.OnC
     private void userLogin() {
         progressDialog.show();
         Log.e("Firebasesss","sfs");
-        auth.signInWithEmailAndPassword(etxtEmail.getText().toString(),etxtPass.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Toast.makeText(SignUpCatererActivity.this,"Login SuccessFull",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(SignUpCatererActivity.this,LoggedInCatererActivity.class);
-                startActivity(intent);
-                progressDialog.dismiss();
-                finish();
-            }
-        }).addOnFailureListener(this, new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                e.printStackTrace();
-                Toast.makeText(SignUpCatererActivity.this,"Login UnSuccessFull"+e.getMessage(),Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-                Intent intent = new Intent(SignUpCatererActivity.this,SignUpCatererActivity.class);
-                startActivity(intent);
-            }
-        });
+
+        if (etxtEmail.getText().toString().endsWith(".com") ||  !etxtPass.getText().toString().contains("0-9") ) {
+
+            auth.signInWithEmailAndPassword(etxtEmail.getText().toString(), etxtPass.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                          //  Toast.makeText(SignUpCatererActivity.this, "Login SuccessFull", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(SignUpCatererActivity.this, LoggedInCatererActivity.class);
+                            startActivity(intent);
+                            progressDialog.dismiss();
+                            finish();
+                        }
+                    }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(SignUpCatererActivity.this, "Login UnSuccessFull" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                    Intent intent = new Intent(SignUpCatererActivity.this, SignUpCatererActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }else{
+            Toast.makeText(this,"Wrong Details Please Check Again",Toast.LENGTH_LONG).show();
+        }
     }
 }
