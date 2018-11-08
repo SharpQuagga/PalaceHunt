@@ -31,9 +31,7 @@ public class Palace {
         this.password = password;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+    public String getImageUrl() { return imageUrl; }
 
     public String getId() {
         return id;

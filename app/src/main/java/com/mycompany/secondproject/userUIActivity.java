@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class userUIActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
@@ -76,11 +77,12 @@ public class userUIActivity extends AppCompatActivity implements DatePickerDialo
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        i1 = i1 + 1;
-        // Toast.makeText(userUIActivity.this,i2+" "+i1+" "+i,Toast.LENGTH_LONG).show();
-        txtDate.setText("Selected Date: " + i2 + "/" + i1 + "/" + i);
-        int abc=i2;
+            i1 = i1 + 1;
+             Toast.makeText(userUIActivity.this,i2+" "+i1+" "+i,Toast.LENGTH_LONG).show();
+            txtDate.setText("Selected Date: " + i2 + "/" + i1 + "/" + i);
+            int abc=i2;
         InputDate=Integer.toString(abc);
+
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.blink_anim);
         btnSearch.startAnimation(animation);
 
